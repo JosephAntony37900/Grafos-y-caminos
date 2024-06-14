@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafos y caminos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>GraFos y Caminos</h1>
+        <div class="form-container">
+            <h2>Añadir Ciudades</h2>
+            <form id="vertex-form">
+                <input type="text" id="vertex-name" placeholder="Vertex Name">
+                <button type="submit">Add city</button>
+            </form>
+            <h2>Añadir km</h2>
+            <form id="edge-form">
+                <input type="text" id="start-vertex" placeholder="Start Vertex">
+                <input type="text" id="end-vertex" placeholder="End Vertex">
+                <input type="number" id="weight" placeholder="Weight" min="1" value="1">
+                <button type="submit">Add km</button>
+            </form>
+        </div>
+        <div class="graph-container">
+            <h2>Grafo/recorrido Visualización </h2>
+            <pre id="graph-output"></pre>
+        </div>
+    </div>
+    <script src="/src/controllers/app.js" type="module"></script>
+</body>
+</html>
