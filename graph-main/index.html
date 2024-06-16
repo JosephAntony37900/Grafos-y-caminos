@@ -8,26 +8,33 @@
 </head>
 <body>
     <div class="container">
-        <h1>GraFos y Caminos</h1>
+        <h1>Grafos y Caminos</h1>
         <div class="form-container">
             <h2>Añadir Ciudades</h2>
             <form id="vertex-form">
-                <input type="text" id="vertex-name" placeholder="Vertex Name">
-                <button type="submit">Add city</button>
+                <input type="text" id="vertex-name" placeholder="Nombre de la ciudad">
+                <button type="submit">Añadir ciudad</button>
             </form>
             <h2>Añadir km</h2>
             <form id="edge-form">
-                <input type="text" id="start-vertex" placeholder="Start Vertex">
-                <input type="text" id="end-vertex" placeholder="End Vertex">
-                <input type="number" id="weight" placeholder="Weight" min="1" value="1">
-                <button type="submit">Add km</button>
+                <input type="text" id="start-vertex" placeholder="Ciudad de origen">
+                <input type="text" id="end-vertex" placeholder="Ciudad de destino">
+                <input type="number" id="weight" placeholder="Distancia (km)" min="1" value="1">
+                <button type="submit">Añadir km</button>
             </form>
         </div>
         <div class="graph-container">
-            <h2>Grafo/recorrido Visualización </h2>
+            <h2>Grafo/recorrido Visualización</h2>
             <pre id="graph-output"></pre>
         </div>
+        <div class="traverse-container">
+            <h2>Realizar recorrido</h2>
+            <input type="text" id="start-vertex-traverse" placeholder="Ciudad de inicio">
+            <button id="bfs-button">BFS</button>
+            <button id="dfs-button">DFS</button>
+            <div id="results"></div>
+        </div>
     </div>
-    <script src="/src/controllers/app.js" type="module"></script>
+    <script type="module" src="/src/controllers/app.js"></script>
 </body>
 </html>

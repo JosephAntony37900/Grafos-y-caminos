@@ -12,7 +12,14 @@ class Node {
     getKey(){
         return this.#key;
     }
+    
+    set next(node) {
+        this.#next = node;
+    }
 
+    get next() {
+        return this.#next;
+    }
 }
 
 export default Node

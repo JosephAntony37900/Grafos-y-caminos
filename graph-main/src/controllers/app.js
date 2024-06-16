@@ -5,6 +5,9 @@ let g = new Graph();
 const vertexForm = document.getElementById('vertex-form');
 const edgeForm = document.getElementById('edge-form');
 const graphOutput = document.getElementById('graph-output');
+const bfsButton = document.getElementById('bfs-button');
+const dfsButton = document.getElementById('dfs-button');
+const resultsDiv = document.getElementById('results');
 
 vertexForm.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -31,15 +34,36 @@ edgeForm.addEventListener('submit', (event) => {
     }
 });
 
-function updateGraphOutput() {
-    graphOutput.textContent = JSON.stringify(g, replacer, 2);
-}
-
-function replacer(key, value) {
-    if (key.startsWith('#')) {
-        return undefined; // Remove private properties
+bfsButton.addEventListener('click', () => {
+    const startVertex = document.getElementById('start-vertex-traverse').value;
+    resultsDiv.innerHTML = '';
+    if (g.vertexExists(startVertex)) {
+        g.bfs((n) => {
+            resultsDiv.innerHTML += `<p>${n}</p>`;
+        });
+    } else {
+        alert('Please enter a valid starting vertex.');
     }
-    return value;
+});
+
+dfsButton.addEventListener('click', () => {
+    const startVertex = document.getElementById('start-vertex-traverse').value;
+    resultsDiv.innerHTML = '';
+    if (g.vertexExists(startVertex)) {
+        g.dfs((n) => {
+            resultsDiv.innerHTML += `<p>${n}</p>`;
+        });
+    } else {
+        alert('Please enter a valid starting vertex.');
+    }
+});
+
+function updateGraphOutput() {
+    graphOutput.textContent = JSON.stringify({
+        listaAdyacencia: g.getListaAdyacencia(),
+        map: Array.from(g.getMap().entries()),
+        maprev: Array.from(g.getMapRev().entries())
+    }, null, 2);
 }
 
 updateGraphOutput();
