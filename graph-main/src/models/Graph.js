@@ -100,4 +100,46 @@ export default class Graph {
     getListaAdyacencia() {
         return this.#listaAdyacencia;
     }
+
+    dijkstra(start, end) {
+        const distances = {};
+        const prev = {};
+        const pq = [];
+
+        for (let i = 0; i < this.#listaAdyacencia.length; i++) {
+            let vertex = this.#maprev.get(i);
+            distances[vertex] = Infinity;
+            prev[vertex] = null;
+        }
+
+        distances[start] = 0;
+        pq.push({ element: start, priority: 0 });
+
+        while (pq.length > 0) {
+            pq.sort((a, b) => a.priority - b.priority);
+            const { element: u } = pq.shift();
+
+            if (u === end) break;
+
+            const currentIndex = this.#map.get(u);
+            this.#listaAdyacencia[currentIndex].run((v, weight) => {
+                const alt = distances[u] + weight;
+                if (alt < distances[v]) {
+                    distances[v] = alt;
+                    prev[v] = u;
+                    pq.push({ element: v, priority: alt });
+                }
+            });
+        }
+
+        const path = [];
+        let u = end;
+        while (prev[u] !== null) {
+            path.unshift(u);
+            u = prev[u];
+        }
+        path.unshift(start);
+
+        return { distance: distances[end], path };
+    }
 }

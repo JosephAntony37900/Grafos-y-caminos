@@ -1,4 +1,4 @@
-import Graph from "../models/Graph.js";
+import Graph from "../models/Graph.mjs";
 const g = new Graph(); 
 
 

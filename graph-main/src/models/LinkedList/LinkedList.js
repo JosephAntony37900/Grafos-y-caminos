@@ -29,7 +29,7 @@ class LinkedList {
             console.log("vacio");
         } else {
             while (current != null) {
-                callback(current.getKey());
+                callback(current.getKey(), current.weigh);
                 current = current.next;
             }
         }
