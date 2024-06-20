@@ -1,4 +1,3 @@
-// controllers/app.js
 import { cityGraph } from "./dependencies.js";
 
 document.addEventListener('DOMContentLoaded', () => {

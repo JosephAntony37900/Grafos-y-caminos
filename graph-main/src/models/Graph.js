@@ -1,4 +1,4 @@
-// models/graph.js
+
 import { LinkedList } from "./LinkedList/LinkedList.js";
 
 export default class Graph {
@@ -62,14 +62,14 @@ export default class Graph {
         const visited = new Set();
         const unvisited = new Set(this.#cityMap.keys());
         
-        // Initialize distances
+        // Inicializa distancia
         for (const city of this.#cityMap.keys()) {
             distances[city] = Infinity;
         }
         distances[startCity] = 0;
 
         while (unvisited.size > 0) {
-            // Find the unvisited node with the smallest distance
+            //Encuentra el nodo no visitado con la distancia más pequeña
             let currentCity = null;
             for (const city of unvisited) {
                 if (currentCity === null || distances[city] < distances[currentCity]) {
@@ -84,7 +84,7 @@ export default class Graph {
             unvisited.delete(currentCity);
             visited.add(currentCity);
 
-            // Update distances to neighbors
+            //Actualiza distancias vecinas
             const currentIndex = this.#cityMap.get(currentCity);
             const neighbors = this.#vertices[currentIndex];
             let currentNode = neighbors.getElementAt(0);

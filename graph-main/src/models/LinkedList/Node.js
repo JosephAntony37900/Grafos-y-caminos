@@ -1,4 +1,3 @@
-// models/Node.js
 class Node {
     #value;
     #next;

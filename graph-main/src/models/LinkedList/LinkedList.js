@@ -1,4 +1,3 @@
-// models/LinkedList.js
 import Node from "../LinkedList/Node.js"
 import City from "../Vertex.js";
 

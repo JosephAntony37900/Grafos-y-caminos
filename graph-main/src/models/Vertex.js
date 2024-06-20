@@ -1,4 +1,3 @@
-// models/City.js
 class City {
     name;
     distance;
